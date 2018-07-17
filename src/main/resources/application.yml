@@ -1,0 +1,35 @@
+server:
+  port: 8989
+  tomcat:
+      uri-encoding: UTF-8
+
+## master 数据源配置
+master:
+  datasource:
+    url: jdbc:dm://192.168.159.8:8236?comOra=ture
+    username: ZHOU
+    password: zhou@123456
+    driverClassName: dm.jdbc.driver.DmDriver
+
+## cluster 数据源配置
+cluster:
+  datasource:
+    url: jdbc:dm://192.168.159.8:8236?comOra=ture
+    username: ZHOU_TEST
+    password: zhou@test
+    driverClassName: dm.jdbc.driver.DmDriver
+
+datasource:
+    filters: stat
+    maxActive: 20
+    initialSize: 1
+    maxWait: 60000
+    minIdle: 1
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 1 from dual
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 20
